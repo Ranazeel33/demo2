@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './Pages/home';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import theme from './Pages/home/theme/typography'
+import { ThemeProvider } from '@emotion/react';
+import typography from './Pages/home/theme/typography';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
